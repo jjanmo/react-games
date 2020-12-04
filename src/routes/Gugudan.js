@@ -1,6 +1,7 @@
 import React from 'react';
-import BackButton from '../components/BackButton';
+import HomeButton from '../components/HomeButton';
 import restart from '../assets/restart.png';
+import styles from '../styles/Gugudan.module.css';
 
 class Gugudan extends React.Component {
     constructor(props) {
@@ -25,12 +26,21 @@ class Gugudan extends React.Component {
     }
 
     handleSubmit = (e) => {
-        const { number1, number2, input } = this.state;
         e.preventDefault();
-        if (number1 * number2 === parseInt(input)) {
-            this.setState({ message: '와우 맞추었습니다!' });
+        const { number1, number2, input } = this.state;
+        const submittedNumber = parseInt(input);
+        if (isNaN(submittedNumber)) {
+            this.setState({ message: '숫자만 입력할 수 있습니다. 😱', input: '' });
+        } else if (number1 * number2 === parseInt(input)) {
+            this.setNumber();
+            this.setState(() => {
+                return {
+                    message: `와우 🥳 맞췄습니다! (정답 : ${number1 * number2})`,
+                    input: '',
+                };
+            });
         } else {
-            this.setState({ message: '꽝!! 틀렸습니다.' });
+            this.setState({ message: `꽝 🤯 틀렸습니다.`, input: '' });
         }
     };
 
@@ -39,25 +49,33 @@ class Gugudan extends React.Component {
         this.setState({ input: target.value });
     };
 
+    handleClick = () => {
+        this.setNumber();
+    };
+
     render() {
         const { number1, number2, input, message } = this.state;
         return (
-            <div>
-                <h1>구구단을 맞추시오 🚀</h1>
-                <div>
-                    <button>
-                        <img src={restart} width="15" height="15" />
+            <div className={styles.outerContainer}>
+                <h1 className={styles.title}>구구단을 외우자</h1>
+                <div className={styles.innerContainer}>
+                    <button className={styles.restartButton} onClick={this.handleClick}>
+                        <img className={styles.img} src={restart} alt="restart" />
                     </button>
-                    <form onSubmit={this.handleSubmit}>
-                        <div>{`${number1} * ${number2} = ?`}</div>
-                        <div>
-                            <input type="number" value={input} onChange={this.handleChange} />
-                            <input type="submit" value="제출" />
-                        </div>
+                    <div className={styles.question}>{`${number1} X ${number2} = ?`}</div>
+                    <form className={styles.form} onSubmit={this.handleSubmit}>
+                        <input
+                            className={styles.input}
+                            type="text"
+                            value={input}
+                            onChange={this.handleChange}
+                            autoFocus
+                        />
+                        <input className={styles.submitButton} type="submit" value="제출" />
                     </form>
-                    <div>{message}</div>
+                    <div className={styles.message}>{message}</div>
                 </div>
-                <BackButton />
+                <HomeButton />
             </div>
         );
     }
