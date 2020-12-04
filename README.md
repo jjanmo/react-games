@@ -2,7 +2,7 @@
 
 > 리액트와 리액트 훅스로 무엇인가를 만들어보며 공부(?)하는 저장소이다. 🚀
 
-> [Website](jjanmo.github.io/reactlearn/)
+> [Website](https://jjanmo.github.io/reactlearn/)
 
 ## General
 
