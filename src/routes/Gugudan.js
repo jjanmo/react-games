@@ -70,6 +70,7 @@ class Gugudan extends React.Component {
                             value={input}
                             onChange={this.handleChange}
                             autoFocus
+                            maxLength={3}
                         />
                         <input className={styles.submitButton} type="submit" value="제출" />
                     </form>
