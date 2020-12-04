@@ -1,4 +1,6 @@
 import React from 'react';
+import BackButton from '../components/BackButton';
+import restart from '../assets/restart.png';
 
 class Gugudan extends React.Component {
     constructor(props) {
@@ -42,14 +44,20 @@ class Gugudan extends React.Component {
         return (
             <div>
                 <h1>구구단을 맞추시오 🚀</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <div>{`${number1} * ${number2} = ?`}</div>
-                    <div>
-                        <input type="number" value={input} onChange={this.handleChange} />
-                        <input type="submit" value="제출" />
-                    </div>
-                </form>
-                <div>{message}</div>
+                <div>
+                    <button>
+                        <img src={restart} width="15" height="15" />
+                    </button>
+                    <form onSubmit={this.handleSubmit}>
+                        <div>{`${number1} * ${number2} = ?`}</div>
+                        <div>
+                            <input type="number" value={input} onChange={this.handleChange} />
+                            <input type="submit" value="제출" />
+                        </div>
+                    </form>
+                    <div>{message}</div>
+                </div>
+                <BackButton />
             </div>
         );
     }
