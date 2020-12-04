@@ -1,6 +1,6 @@
 import React from 'react';
 import HomeButton from '../components/HomeButton';
-import restart from '../assets/restart.png';
+import RestartImg from '../assets/restart.png';
 import styles from '../styles/Gugudan.module.css';
 
 class Gugudan extends React.Component {
@@ -60,7 +60,7 @@ class Gugudan extends React.Component {
                 <h1 className={styles.title}>구구단을 외우자</h1>
                 <div className={styles.innerContainer}>
                     <button className={styles.restartButton} onClick={this.handleClick}>
-                        <img className={styles.img} src={restart} alt="restart" />
+                        <img className={styles.img} src={RestartImg} alt="restart" />
                     </button>
                     <div className={styles.question}>{`${number1} X ${number2} = ?`}</div>
                     <form className={styles.form} onSubmit={this.handleSubmit}>
