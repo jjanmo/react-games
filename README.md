@@ -12,7 +12,7 @@
 
 ## Contents
 
-| ##  |  Contents   |
-| :-: | :---------: |
-| 01  | 구구단 퀴즈 |
-|     |             |
+| ##  |  Contents   | Concepts                                           |
+| :-: | :---------: | :------------------------------------------------- |
+| 01  | 구구단 퀴즈 | Props & State, Class Component, Event, CSS Modules |
+|     |             |                                                    |
