@@ -12,7 +12,7 @@ class Home extends React.Component {
                         <Link to="/gugudan">구구단 퀴즈</Link>
                     </li>
                     <li>
-                        <Link to="/endword">끝말잇기 게임</Link>
+                        <Link to="/endwords-relay">끝말잇기 게임</Link>
                     </li>
                     <li>
                         <Link to="/number-baseball">숫자야구 게임</Link>
